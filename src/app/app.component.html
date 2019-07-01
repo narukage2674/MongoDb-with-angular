@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <h1 class="h1">MongoDB in Angular 8 </h1>
+        <form  #userForm="ngForm" (ngSubmit)="onSave(userForm.value)" novalidate> 
+      
+            <div class="form-group">
+              
+                <input name="id" type="hidden"     [(ngModel)]="id" >  
+                <label for="">Name</label>
+                <input name="name" class="form-control" type="text"  required  [(ngModel)]="name" >
+                <label for="">Address</label>
+                <input name="address" required class="form-control"  type="text"   [(ngModel)]="address" >
+                <hr>
+                
+                
+            </div> 
+            <div class="btn btn-toolbar">
+                <button class="btn btn-success" type="submit" >{{valbutton}} </button>
+                <button class="btn btn-primary" type="button" (click)="onClear()" >Clear</button>
+            </div>
+            <p>Is "myForm" valid? <strong>{{userForm.valid}}</strong></p>  
+            
+           <!-- <table class="table table-dark table-hover">  
+          <tr>  
+          <td>name</td>  
+          <td>   
+                
+            
+           </td>  
+          </tr>  
+            
+          <tr>  
+              <td>address</td>  
+              <td>      
+              </tr>  
+              <tr>  
+                  <td colspan="2">  
+                
+              </td>  
+              </tr>  
+           </table>   -->
+          </form>   
+    </div>
+    
+      
+    <table class="table table-dark table-hover">  
+      
+      <tr>  
+        <td>Id</td>  
+        <td>Name</td>  
+        <td>Address</td>  
+        <td>Edit</td>  
+        <td>Delete</td>  
+      </tr>  
+      <tr *ngFor="let kk of Repdata;let ind = index">  
+           
+        <td>{{ind + 1}}</td>  
+        <td>{{kk.name}}</td>  
+        <td>{{kk.address}}</td>  
+        <td><button class="btn btn-primary" (click)="edit(kk)" type="button" >Edit</button></td>  
+        <td><button class="btn btn-danger" type="button" (click)="delete(kk._id)">Delete</button>  </td>  
+      </tr>  
+    </table> 
+  </div>
+</div>
